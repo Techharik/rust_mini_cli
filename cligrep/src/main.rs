@@ -23,7 +23,12 @@ fn main() {
             results.push(line);
         }
     }
-    println!("{:?}------", results.get(0));
+
+    match results.get(0) {
+        Some(cont) => println!("I have the result ---- {}", cont),
+        None => println!("I given word is not found"),
+    };
+    // println!("{:?}------", ans);
 }
 struct Config<'a> {
     query: &'a String,
