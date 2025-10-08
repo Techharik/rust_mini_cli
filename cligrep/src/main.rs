@@ -15,6 +15,15 @@ fn main() {
     let contents = fs::read_to_string(file_path).expect("Should have been able to read the file");
 
     println!("With text:\n{contents}");
+
+    let mut results = Vec::new();
+
+    for line in contents.lines() {
+        if line.to_lowercase().contains(&*query) {
+            results.push(line);
+        }
+    }
+    println!("{:?}------", results.get(0));
 }
 struct Config<'a> {
     query: &'a String,
